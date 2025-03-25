@@ -1,0 +1,233 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 340px;
+  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+               Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #33333300;
+  background: linear-gradient(135deg, #f4f6f8 0%, #e9eaec 100%);
+}
+
+/* Main container for the extension UI */
+#app {
+  margin: 12px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative; /* allows the floating button to anchor here */
+}
+
+/* Heading */
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Local time row styling */
+#local-time {
+  margin-bottom: 14px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+}
+
+/* Slider area */
+#slider-wrapper {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* The range input */
+#time-slider {
+  flex: 1;
+}
+
+#slider-value {
+  width: auto;
+  text-align: right;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Time zone list */
+#timezone-list {
+  list-style: none;
+  margin-top: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-left: 0;
+}
+
+.timezone-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s ease;
+}
+
+.timezone-row:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.timezone-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timezone-info strong {
+  font-size: 14px;
+  color: #333;
+}
+
+.timezone-info span {
+  font-size: 13px;
+  color: #555;
+}
+
+.timezone-info small {
+  font-size: 12px;
+  color: #777;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #d11a2a;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: rgba(209, 26, 42, 0.08);
+}
+
+/* FAB (Floating Action Button) at bottom-right */
+#fab {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #4caf50;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  text-align: center;
+  line-height: 44px;
+  transition: background 0.2s ease;
+}
+
+#fab:hover {
+  background: #45a049;
+}
+
+/* Overlay panel for adding a new time zone */
+#add-panel-overlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  inset: 0; /* cover entire popup area */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-panel {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 260px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+#add-panel h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+/* The label input and timezone select inside the panel */
+#add-panel input,
+#add-panel select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+#add-panel input:focus,
+#add-panel select:focus {
+  border-color: #9fa8da;
+  box-shadow: 0 0 0 2px rgba(159, 168, 218, 0.2);
+}
+
+/* Container for the Add/Cancel buttons in the panel */
+.add-panel-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Cancel and Add buttons in the panel */
+#cancel-btn,
+#add-btn {
+  flex: 1;
+  margin: 0 4px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#cancel-btn {
+  background: #ddd;
+  color: #333;
+}
+
+#cancel-btn:hover {
+  background: #ccc;
+}
+
+#add-btn {
+  background: #4caf50;
+  color: #fff;
+}
+
+#add-btn:hover {
+  background: #45a049;
+}
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Time Zone</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Open Time Zone</h1>
+
+    <!-- Local time display -->
+    <div id="local-time" class="timezone-row"></div>
+
+    <!-- Time shift slider -->
+    <div id="slider-wrapper">
+      <label for="time-slider">Shift Time:</label>
+      <input
+        type="range"
+        min="-12"
+        max="12"
+        value="0"
+        step="1"
+        id="time-slider"
+      />
+      <span id="slider-value">+0h</span>
+    </div>
+
+    <!-- List of tracked time zones -->
+    <ul id="timezone-list"></ul>
+
+    <!-- Floating Action Button (bottom right) -->
+    <button id="fab" title="Add Time Zone">+</button>
+
+    <!-- Overlay for adding a time zone (hidden by default) -->
+    <div id="add-panel-overlay">
+      <div id="add-panel">
+        <h2>Add Time Zone</h2>
+        <input
+          type="text"
+          id="label-input"
+          placeholder="Label (e.g. '🤠 Boss', can paste emoji)"
+        />
+        <select id="timezone-select"></select>
+
+        <div class="add-panel-btns">
+          <button id="cancel-btn">Cancel</button>
+          <button id="add-btn">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
